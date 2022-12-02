@@ -1,6 +1,3 @@
-import random
-
-
 def getLines(f: str) -> list[str]:
     file = open(f)
     return file.readlines()
