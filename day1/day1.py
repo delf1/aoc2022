@@ -26,13 +26,11 @@ def quickselect(nums: list[int], n: int) -> int:
                 divider += 1
                 nums[i], nums[divider] = nums[divider], nums[i]
 
-        if divider == n:
-            return nums[divider]
         if divider > n:
             right = divider - 1
         else:
             left = divider
-        
+
     return nums[left]
 
 
