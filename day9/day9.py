@@ -1,7 +1,5 @@
 from functools import reduce
 
-R, L, U, D = 'R', 'L', 'U', 'D'
-
 def getLines(f):
     file = open(f)
     return [line.strip() for line in file.readlines()]
@@ -32,24 +30,20 @@ def moveTail(head, tail):
             else:
                 ry += 1
         return rx, ry
-            
-    
-def getDelta(dir):
-    if dir == R:
-        return (1, 0)
-    elif dir == L:
-        return (-1, 0)
-    elif dir == U:
-        return (0, 1)
-    else:
-        return (0, -1)
 
+delta = {
+    'R': (1, 0),
+    'L': (-1, 0),
+    'U': (0, 1),
+    'D': (0, -1)
+}   
+    
 def solve(motions, length):
     knots = [(0, 0)] * length
     visited = set([knots[-1]])
 
     for dir, steps in motions:
-        dx, dy = getDelta(dir)
+        dx, dy = delta[dir]
         for _ in range(steps):
             hx, hy = knots[0]
             knots[0] = hx + dx, hy + dy
