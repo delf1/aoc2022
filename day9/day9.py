@@ -1,5 +1,3 @@
-from functools import reduce
-
 def getLines(f):
     file = open(f)
     return [line.strip() for line in file.readlines()]
